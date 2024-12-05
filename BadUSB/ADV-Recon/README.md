@@ -1,1 +1,1 @@
-Auch hier wieder nur eine Anpassung des Original-Scripts von i am Jakoby an den deutschen Bereich.
+Auch hier wieder nur eine Anpassung des Original-Scripts von I am Jakoby an den deutschen Bereich.
